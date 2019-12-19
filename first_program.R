@@ -68,6 +68,44 @@ library(gplots)
 
 summary(only_sales)
 
+# Find type of all variale
+
+sapply(only_sales,class)
+
+# Changing all level variables to factor
+
+names <- c('Exc_level','JrIc_level','Mgr_level','SrExec_level','SrIc_level','Sprt_level','Dir_level')
+
+only_sales[,names] <- lapply(only_sales[,names],factor)
+
+# changing all region variables to factor
+
+names <- c('C_region','E_region','N_region','S_region','SW_region','W_region')
+
+only_sales[,names] <- lapply(only_sales[,names], factor)
+
+# Removing few more columns as those are redundant
+
+only_sales <- subset(only_sales, select = -c(level,level_num,func_dept,region))
+
+
+# to identify relationship between two continous variable i.e. attainquota and email count
+
+scatter.smooth(x=only_sales$attainquota, y = only_sales$emailcount)
+
+# similar for meeting count
+
+scatter.smooth(x=only_sales$attainquota, y = only_sales$meetingcount)
+
+# checking outliers for both total email count and total meeting count
+
+par(mfrow=c(1,2))
+
+boxplot(only_sales$emailcount, main="Total Email Count", boxplot.stats(only_sales$emailcount)$out)
+
+boxplot(only_sales$meetingcount, main = "Total Meeting Count", boxplot.stats(only_sales$meetingcount)$out)
+
+
 
 
 

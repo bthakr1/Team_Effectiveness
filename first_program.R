@@ -60,7 +60,13 @@ only_sales <- subset(only_sales, select = -c(sales_non_sales,Sales_dept,pid))
 
 only_sales <- subset(only_sales, select = -c(GA_dept,HR_dept,Mkting_dept,Ops_dept,PM_dept,RD_dept))
 
+# to plot means
 
+library(gplots)
+
+# Voila... seems like a lot of binary looking like variables are not binary at all
+
+summary(only_sales)
 
 
 

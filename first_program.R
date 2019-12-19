@@ -52,9 +52,13 @@ group_by(sarah_powers_data_hbap,sales_non_sales) %>%
 
 only_sales <- subset(sarah_powers_data_hbap, sarah_powers_data_hbap$sales_non_sales=="Sales")
 
-# remove two columns 
+# remove three columns 
 
-only_sales <- subset(only_sales, select = -c(sales_non_sales,Sales_dept))
+only_sales <- subset(only_sales, select = -c(sales_non_sales,Sales_dept,pid))
+
+# Remove all the columns pertaining to department level information
+
+only_sales <- subset(only_sales, select = -c(GA_dept,HR_dept,Mkting_dept,Ops_dept,PM_dept,RD_dept))
 
 
 

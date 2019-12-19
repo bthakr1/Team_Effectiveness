@@ -23,6 +23,39 @@ library(dplyr)
 group_by(sarah_powers_data_hbap,sales_non_sales) %>% 
   summarise(
     count = n(),
-    mean = mean(emailcount, na.rm = TRUE),
-    median = median(emailcount, na.r=TRUE)
+    total_email_count_mean = mean(emailcount, na.rm = TRUE),
+    total_email_count_median = median(emailcount, na.r=TRUE)
   )
+
+# To get stats on total meeting count
+
+group_by(sarah_powers_data_hbap,sales_non_sales) %>% 
+  summarise(
+    count = n(),
+    total_meeting_count_mean = mean(meetingcount, na.rm = TRUE),
+    total_meeting_count_median = median(meetingcount, na.r=TRUE)
+  )
+
+# on meeting quotas
+
+# To get stats on total meeting count
+
+group_by(sarah_powers_data_hbap,sales_non_sales) %>% 
+  summarise(
+    count = n(),
+    total_quota_count_mean = mean(attainquota, na.rm = TRUE),
+    total_quota_count_median = median(attainquota, na.r=TRUE)
+  )
+
+
+# getting only sales people
+
+only_sales <- subset(sarah_powers_data_hbap, sarah_powers_data_hbap$sales_non_sales=="Sales")
+
+
+
+
+
+
+
+

@@ -52,6 +52,10 @@ group_by(sarah_powers_data_hbap,sales_non_sales) %>%
 
 only_sales <- subset(sarah_powers_data_hbap, sarah_powers_data_hbap$sales_non_sales=="Sales")
 
+# remove two columns 
+
+only_sales <- subset(only_sales, select = -c(sales_non_sales,Sales_dept))
+
 
 
 

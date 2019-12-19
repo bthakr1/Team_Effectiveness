@@ -105,6 +105,21 @@ boxplot(only_sales$emailcount, main="Total Email Count", boxplot.stats(only_sale
 
 boxplot(only_sales$meetingcount, main = "Total Meeting Count", boxplot.stats(only_sales$meetingcount)$out)
 
+boxplot(only_sales$centrality, main = "Centrality" , boxplot.stats(only_sales$centrality)$out)
+
+
+# drawing normal density plots to see the 
+
+library(e1071)
+
+par(mfrow=c(1,2))
+
+plot(density(only_sales$emailcount), main = "Density of Email Count", ylab = "Frequency", sub=paste("Skewness:", round(e1071::skewness(only_sales$emailcount),2)))
+
+plot(density(only_sales$meetingcount), main = "Density of Meeting count", ylab = "Frequency", sub=paste("Skewness:",round(e1071::skewness(only_sales$meetingcount),2)))
+
+
+
 
 
 
